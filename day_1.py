@@ -1,18 +1,17 @@
-max_calories = 0
-snacks = []
+def get_snacks(file_path):
+    calories = 0
+    snacks = []
+    with open(file_path, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                calories += int(line)
+            else:
+                snacks.append(calories)
+                calories=0
+    return sorted(snacks, reverse=True)
+    
+snacks = get_snacks('inputs/day_1.txt')
 
-with open('inputs/day_1.txt', 'r') as f:
-    for line in f:
-        line = line.strip()
-        if line:
-            max_calories += int(line)
-        else:
-            snacks.append(max_calories)
-            max_calories=0
-
-sorted_snacks = sorted(snacks, reverse=True)
-
-#First answer
-print(max(sorted_snacks))
-#second answer
-print(sum(sorted_snacks[0:3]))
+print(max(snacks))
+print(sum(snacks[0:3]))
