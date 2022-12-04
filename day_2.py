@@ -1,4 +1,4 @@
-from day_2_helpers.helpers import correspondances
+from helpers.h_day_2 import correspondances
 
 
 file_path = 'inputs/day_2.txt'
@@ -14,7 +14,7 @@ def get_result(a, b):
     if a == 'Scissors':
         return 6 if b == 'Paper' else 0
  
- def get_shape_to_match_result(shape, result):
+def get_shape_to_match_result(shape, result):
     if shape == 'Paper':
          pass
     return 0
