@@ -1,5 +1,3 @@
-line = '23-33,21-65'
-
 file_path = 'inputs/day_4.txt'
 
 def intersection(list1, list2):
