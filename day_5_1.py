@@ -11,7 +11,7 @@ with open(file_path, 'r') as f:
     for i in f.readlines():
         qty, _, from_, _, to = i[5:].rstrip().split(' ')
         for j in range(int(qty)):
-            crates[int(to) - 1].insert(0, crates[int(from_) - 1][0])
+            crates[int(to) - 1].insert(0, crates[int(from_) - 1][0])                                                               
             crates[int(from_) - 1].pop(0)
 
 print(''.join([i[0] for i in crates]))
