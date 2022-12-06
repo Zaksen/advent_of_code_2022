@@ -20,9 +20,6 @@ with open(file_path, 'r') as f:
         
 print(sum_of_priorities)
 
-
-
-#part_two
 with open(file_path, 'r') as f:
     content = [set(line.rstrip()) for line in f]
     
