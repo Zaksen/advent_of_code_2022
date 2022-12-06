@@ -3,8 +3,7 @@ def get_snacks(file_path):
     snacks = []
     with open(file_path, 'r') as f:
         for line in f:
-            line = line.strip()
-            if line:
+            if line.strip():
                 calories += int(line)
             else:
                 snacks.append(calories)
