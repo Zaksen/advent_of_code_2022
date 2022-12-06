@@ -1,3 +1,5 @@
+file_path = 'inputs/day_1.txt'
+
 def get_snacks(file_path):
     calories = 0
     snacks = []
@@ -10,7 +12,5 @@ def get_snacks(file_path):
                 calories=0
     return sorted(snacks, reverse=True)
     
-snacks = get_snacks('inputs/day_1.txt')
-
-print(max(snacks))
-print(sum(snacks[0:3]))
+snacks = get_snacks(file_path)
+print(max(snacks), sum(snacks[0:3]))
