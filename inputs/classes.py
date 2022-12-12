@@ -8,12 +8,13 @@ class Directory:
         self.children.append(child)
     
     def get_child(self, name):
+        if name == '..':
+            return self.parent
         for c in self.children:
-            print(c.name)
             if isinstance(c, Directory):
                 if c.name == name:
                     return c
-                
+                    
     def __repr__(self):
         return(f'Directory {self.name}')
             
