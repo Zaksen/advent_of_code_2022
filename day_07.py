@@ -1,17 +1,24 @@
-class Directory:
-    def __init__(self, name, isFile=False):
-        self.name = name
-        self.size = 0
-        self.children = []
-        self.isFile = isFile
+from inputs.classes import File, Directory
 
-    def create_directory(self, child):
-        self.children.append(child)
+with open('inputs/day_7.txt', 'r') as f:
+    f.readline()
+    active_directory = Directory('/')
+    for line in f:
+        args = line.rstrip().split("$ ")
+        if len(args) == 1:
+            arg1, arg2 = args[0].split(" ")
+            if 'dir' in arg1:
+                active_directory.create_child(Directory(arg2, parent=active_directory))
+            else:
+                active_directory.create_child(File(arg2, int(arg1)))    
+        else:
+            if 'ls' not in args[1]:
+                arg1, arg2 = args[1].split(" ")
+                if 'cd' in arg1:
+                    if arg2 == '..':
+                        active_directory = active_directory.parent 
+                    else:
+                        active_directory = active_directory.get_child(arg2)
 
-    def __str__(self): return self.name
-
-main_directory = Directory('/')
-main_directory.create_directory(Directory('a'))
-
-print(main_directory.children)
-
+active_directory = active_directory.parent
+active_directory = active_directory.parent

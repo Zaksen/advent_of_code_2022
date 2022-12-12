@@ -8,5 +8,4 @@ def get_marker(s, nb_characters):
         if len(set(s[i:i+nb_characters])) == len(s[i:i+nb_characters]):
             return i+nb_characters
          
-print(get_marker(content, 4))
-print(get_marker(content, 14))
+print(get_marker(content, 4), get_marker(content, 14))
