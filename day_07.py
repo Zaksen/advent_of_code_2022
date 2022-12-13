@@ -1,7 +1,7 @@
 from inputs.classes import File, Directory
 
 def parseInstruction(line, active_directory):
-    if 'ls' in line:
+    if line.rstrip().endswith('ls'):
         return active_directory
     arg1, arg2 = [x for x in line.rstrip().split('$ ') if x != ''][0].split(' ')
     if arg1 == 'cd':
@@ -18,3 +18,10 @@ with open('inputs/day_7.txt', 'r') as f:
     for line in f:
         active_directory = parseInstruction(line, active_directory)
 
+sum_of_sizes = 0
+for i in Directory.instances:
+    sum_of_sizes += (i.get_size() <= 100000) * i.get_size()
+    
+print(sum_of_sizes)
+        
+    
