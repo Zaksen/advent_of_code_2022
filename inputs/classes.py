@@ -17,12 +17,6 @@ class Directory:
                 if c.name == name:
                     return c
 
-    def contains_file(self):
-        for c in self.children:
-            if isinstance(c, File):
-                return True
-        return False
-    
     def get_size(self):
         size = 0
         for c in self.children:
